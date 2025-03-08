@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #001a4d, #0099ff);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin: 0; /* Ensures no extra margins */
+    overflow: hidden;
+}
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Pushes bottom tab to the bottom */
+    width: 100%; /* Fixed width for mobile view */
+    max-width: 100vw;
+    height: 100vh; /* Full height of the viewport */
+    background: linear-gradient(to bottom, #001a4d, #0099ff);
+    border-radius: 20px;
+    padding: 10px;
+    gap:15px;
+    box-sizing: border-box;
+}
+
+.top-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+   gap: 10px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    background-color: rgb(255, 46, 46);
+    transition: transform 0.2s ease-in-out;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+}
+
+.icon-btn:hover {
+    transform: scale(1.2);
+}
+
+.back-btn {
+    margin-left: 10px;
+  
+}
+
+
+.cash-counter {
+    color: gold;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px;
+}
+.wheel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+}
+.wheel {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fruit {
+    position: absolute;
+    font-size: 30px;
+    text-align: center;
+    transition: opacity 0.3s ease;
+    background-color: white;
+    height: 70px;
+    border-radius: 100%;
+    padding: 5px;
+    width: 70px;
+}
+.fruit span {
+    display: block;
+    font-size: 18px;
+    color: black;
+}
+.fruit.inactive {
+    opacity: 0.3;
+}
+
+/* Arranging fruits in a circular pattern */
+/* Arrange fruits in a perfect circle */
+.fruit:nth-child(1) { top: 0%; left: 50%; transform: translate(-50%, 0); } /* Top */
+.fruit:nth-child(2) { top: 15%; left: 85%; transform: translate(-50%, -50%); } /* Top Right */
+.fruit:nth-child(3) { top: 50%; left: 100%; transform: translate(-50%, -50%); } /* Right */
+.fruit:nth-child(4) { bottom: 0%; left: 50%; transform: translate(-50%, 0); } /* Bottom */
+.fruit:nth-child(5) { top: 85%; left: 85%; transform: translate(-50%, -50%); } /* Bottom Right */
+.fruit:nth-child(6) { top: 85%; left: 15%; transform: translate(-50%, -50%); } /* Bottom Left */
+.fruit:nth-child(7) { top: 50%; left: 0%; transform: translate(-50%, -50%); } /* Left */
+.fruit:nth-child(8) { top: 15%; left: 15%; transform: translate(-50%, -50%); } /* Top Left */
+/* Slightly below Bottom */
+
+
+/* Fix start button position */
+.start-btn {
+    top: 320px; /* Adjusted to be properly centered below wheel */
+}
+
+/* Improve visibility of win popup */
+#winPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #a00; /* Deep red background */
+    border: 4px solid #fff;
+    color: #ffd700; /* Gold text */
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    width: 300px;
+    font-size: 22px;
+    z-index: 9999;
+}
+
+#popupHeading {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #fff; /* White text */
+}
+
+#counterContainer {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.coin-icon {
+    font-size: 30px;
+    color: yellow;
+}
+
+#closePopup {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+#winPopup p {
+    margin: 0;
+    padding: 10px;
+}
+
+#winPopup strong {
+    color: #fff; /* White color for important text */
+}
+
+/* Center image */
+.center-image {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+.center-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* Start Button below the center image */
+
+.bottom-section {
+    width: 95%;
+    background: #ff5733;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    /* position: relative; Ensure it stays at the bottom */
+}
+.result-bar, .win-info, .big-winner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+.record-btn {
+    background: #00aaff;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.bet-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background: #c1440e;
+    border-radius: 10px;
+}
+
+.bet-chip {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid white;
+    background: radial-gradient(circle, #ffffff 30%, transparent 60%);
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+.popup-content h2 {
+    margin: 0;
+    color: #ff5722;
+}
+.popup-content p {
+    font-size: 20px;
+    font-weight: bold;
+}
+.popup-content button {
+    background: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.popup-content button:hover {
+    background: #e64a19;
+}
+#startButton {
+    background: linear-gradient(135deg, #ffcc00, #ff6600);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    margin-inline: 50px;
+}
+
+#startButton:hover {
+    background: linear-gradient(135deg, #ff9900, #ff3300);
+    transform: scale(1.1);
+}
+
+#startButton:disabled {
+    background: gray;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@media (min-width: 600px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+}
+.fruit-row {
+    display: flex;
+    gap: 7px;
+    padding: 15px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.row-fruit {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ffcc00;
+}
+.timer-container{
+    color: white;
+}

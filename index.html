@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=400, user-scalable=no">
+    <title>Greedy</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+    <div class="game-container">
+        <div class="top-bar">
+            <button class="icon-btn back-btn"><i class="fa-solid fa-arrow-left"></i></button>
+            <div class="right-icons">
+                <button class="icon-btn"><i class="fa-solid fa-users"></i></button>   <!-- Users -->
+                <button class="icon-btn"><i class="fa-solid fa-volume-high"></i></button>   <!-- Speaker -->
+                <button class="icon-btn"><i class="fa-solid fa-question"></i></button>   <!-- Question -->
+            </div>
+        </div>
+        <div class="wheel-container">
+            <div class="wheel" id="wheel">
+                <div class="fruit" id="fruit1">🍎<br><span>5x</span></div>
+                <div class="fruit" id="fruit2">🍌<br><span>2x</span></div>
+                <div class="fruit" id="fruit3">🍇<br><span>3x</span></div>
+                <div class="fruit" id="fruit4">🍉<br><span>10x</span></div>
+                <div class="fruit" id="fruit5">🍍<br><span>7x</span></div>
+                <div class="fruit" id="fruit6">🍊<br><span>4x</span></div>
+                <div class="fruit" id="fruit7">🍒<br><span>6x</span></div>
+                <div class="fruit" id="fruit8">🥭<br><span>8x</span></div>
+                <div class="center-image">
+                    <img src="elephent.png" alt="Center Image">
+                </div>
+            </div>
+        </div>
+        <button id="startButton" onclick="startSpin()">Start</button>
+        <div class="timer-container">
+            ⏳ Time Left: <span id="timer">0s</span>
+        </div>
+        
+        <div id="winPopup">
+            <button id="closePopup">✖</button>
+            <h2 id="winHeading">🎉 You Won!</h2> 
+            <p id="popupMessage" style="display: flex;flex-direction: row;gap:5px;align-items: center;margin: auto;width: 100%;justify-content: center;">
+                <img style="height: 30px;width: 30px;" src="coin.png" alt="Coin" class="coin-icon"><span id="winCounter">0</span> 
+            </p>
+        </div>
+        <div class="bottom-section">
+            <div class="bet-options">
+                <button class="bet-chip" data-value="100">100</button>
+                <button class="bet-chip active" data-value="500">500</button>
+                <button class="bet-chip" data-value="1K">1K</button>
+                <button class="bet-chip" data-value="5K">5K</button>
+                <button class="bet-chip" data-value="30K">30K</button>
+            </div>
+            
+            <div class="result-bar">
+                <span class="result-label">Result:</span>
+                <div class="fruit-row">
+                    <div class="row-fruit">🍎</div>
+                    <div class="row-fruit">🍌</div>
+                    <div class="row-fruit">🍇</div>
+                    <div class="row-fruit">🍉</div>
+                    <div class="row-fruit">🍍</div>
+                    <div class="row-fruit">🍊</div>
+                </div>
+            </div>
+            <div class="win-info">
+                <span>999.9M</span>
+                <span>Win</span>
+                <span id="win-amount">1K</span>
+                <button class="record-btn">My Records</button>
+            </div>
+            <div class="big-winner">
+                <span>Big Winner 🏆</span>
+                <span>User100000</span>
+                <span>5.8M</span>
+            </div>
+        </div>
+    </div>
+    
+    <audio id="spinSound" src="spinning.mp3"></audio>
+    <audio id="coinSound" src="coin.mp3"></audio>
+
+    <script src="index.js"></script>
+</body>
+</html>
