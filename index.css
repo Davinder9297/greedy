@@ -39,6 +39,10 @@ body::before {
     padding: 10px;
     /* gap:10px; */
     box-sizing: border-box;
+    background-image: url('ferris-wheel.png');
+    background-size: 391px 465px;;
+    background-position: 6px 128px;
+    background-repeat: no-repeat;
 }
 
 .top-bar {
@@ -85,6 +89,8 @@ body::before {
     align-items: center;
     margin-top: 20px;
     position: relative;
+ 
+    /* background-attachment: fixed; */
 }
 .wheel {
     position: relative;
