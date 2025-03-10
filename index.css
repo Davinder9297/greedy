@@ -40,8 +40,8 @@ body::before {
     /* gap:10px; */
     box-sizing: border-box;
     background-image: url('ferris-wheel.png');
-    background-size: 391px 465px;;
-    background-position: 6px 128px;
+    background-size: 568px 543px;
+    background-position: 58% 30%;
     background-repeat: no-repeat;
 }
 
